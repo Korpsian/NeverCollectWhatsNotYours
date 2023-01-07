@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -53,6 +55,12 @@ namespace StarterAssets
 		public float TopClamp = 90.0f;
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
+
+		[Header("Audio Settings")]
+		public AudioSource SFXSource;
+		[Space]
+		public List<AudioClip> jumpSounds;
+		public List<AudioClip> footStepSounds;
 
 		// cinemachine
 		private float _cinemachineTargetPitch;
@@ -144,6 +152,15 @@ namespace StarterAssets
 			// a reference to the players current horizontal velocity
 			float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
 
+			if(currentHorizontalSpeed > 1 && Grounded)
+            {
+				AudioClip walk = GetRandomClip(footStepSounds);
+				if(_input.sprint)
+                {
+					PlayWalkSFX(walk, 0.4f);
+				} else PlayWalkSFX(walk, 0.8f);
+            }
+
 			float speedOffset = 0.1f;
 			float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
 
@@ -194,6 +211,8 @@ namespace StarterAssets
 				if (_input.jump && _jumpTimeoutDelta <= 0.0f)
 				{
 					// the square root of H * -2 * G = how much velocity needed to reach desired height
+					AudioClip jump = GetRandomClip(jumpSounds);
+					PlayJumpSFX(jump);
 					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
 				}
 
@@ -243,5 +262,54 @@ namespace StarterAssets
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
 		}
+
+
+		AudioClip GetRandomClip(List<AudioClip> clips)
+        {
+			if(clips.Count > 0)
+            {
+				int rand = Random.Range(0, clips.Count - 1);
+				return clips[rand];
+            }
+
+			return null;
+        }
+
+
+		bool jumpSFXPlaying = false;
+		private void PlayJumpSFX(AudioClip sound)
+        {
+			if(SFXSource != null && sound != null && !jumpSFXPlaying)
+            {
+				jumpSFXPlaying = true;
+				SFXSource.PlayOneShot(sound);
+				StartCoroutine(SetJumpSFXPlaying(JumpTimeout, false));
+            }
+        }
+
+		IEnumerator SetJumpSFXPlaying(float delay, bool b)
+        {
+			yield return new WaitForSecondsRealtime(delay);
+			jumpSFXPlaying = b;
+        }
+
+
+		bool walkSFXPlaying = false;
+		private void PlayWalkSFX(AudioClip sound, float delay)
+		{
+			if (SFXSource != null && sound != null && !walkSFXPlaying)
+			{
+				walkSFXPlaying = true;
+				SFXSource.PlayOneShot(sound);
+				StartCoroutine(SetWalkSFXPlaying(delay, false));
+			}
+		}
+
+		IEnumerator SetWalkSFXPlaying(float delay, bool b)
+		{
+			yield return new WaitForSecondsRealtime(delay);
+			walkSFXPlaying = b;
+		}
+
 	}
 }
