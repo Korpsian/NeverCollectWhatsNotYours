@@ -506,7 +506,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4135013735270702863}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.375, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -644,6 +644,7 @@ GameObject:
   - component: {fileID: 8616685848737228376}
   - component: {fileID: 7736708422265824527}
   - component: {fileID: 5440944929073802365}
+  - component: {fileID: 5934335205005502564}
   m_Layer: 7
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -707,7 +708,7 @@ MonoBehaviour:
   SprintSpeed: 16
   RotationSpeed: 1
   SpeedChangeRate: 10
-  JumpHeight: 1.6
+  JumpHeight: 3
   Gravity: -30
   JumpTimeout: 0.1
   FallTimeout: 0.15
@@ -935,6 +936,20 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 108643c4c3d605e408712a9ebb18e473, type: 3}
   - {fileID: 8300000, guid: d05eebb55cbdd064f9cf693c199594ac, type: 3}
   - {fileID: 8300000, guid: 255b54129a4483b4d9d864a4a3be4757, type: 3}
+--- !u!136 &5934335205005502564
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8616685848737228372}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1001 &6801811131442651782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -952,7 +967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.375
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalPosition.z
