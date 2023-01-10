@@ -1416,6 +1416,7 @@ MonoBehaviour:
   DebugActive: 0
   FeedbacksList:
   - rid: 5322809669612732419
+  - rid: 5322809693723688960
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   ForceStopFeedbacksOnDisable: 1
@@ -2455,6 +2456,73 @@ MonoBehaviour:
         RemapShadowStrengthOne: 1
         InstantShadowStrength: 1
         ToDestinationShadowStrength: 1
+    - rid: 5322809693723688960
+      type: {class: MMF_Destroy, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
+      data:
+        Active: 1
+        UniqueID: 1491631737
+        Label: Destroy
+        ChannelMode: 0
+        Channel: 0
+        MMChannelDefinition: {fileID: 0}
+        Chance: 100
+        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
+        Timing:
+          TimescaleMode: 0
+          ExcludeFromHoldingPauses: 0
+          ContributeToTotalDuration: 1
+          InitialDelay: 0
+          CooldownDuration: 0
+          InterruptsOnStop: 1
+          NumberOfRepeats: 0
+          RepeatForever: 0
+          DelayBetweenRepeats: 1
+          MMFeedbacksDirectionCondition: 0
+          PlayDirection: 0
+          ConstantIntensity: 0
+          UseIntensityInterval: 0
+          IntensityIntervalMin: 0
+          IntensityIntervalMax: 0
+          Sequence: {fileID: 0}
+          TrackID: 0
+          Quantized: 0
+          TargetBPM: 120
+        RandomizeOutput: 0
+        RandomMultiplier: {x: 0.8, y: 1}
+        RandomizeDuration: 0
+        RandomDurationMultiplier: {x: 0.5, y: 2}
+        UseRange: 0
+        RangeDistance: 5
+        UseRangeFalloff: 0
+        RangeFalloff:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        RemapRangeFalloff: {x: 0, y: 1}
+        Owner: {fileID: 7388395728531074686}
+        DebugActive: 0
+        TargetGameObject: {fileID: 2380066396888819046}
+        Mode: 0
 --- !u!1001 &195400696634925563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2667,5 +2735,10 @@ PrefabInstance:
 --- !u!4 &2380066396888819042 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7733948596330199274, guid: 8062078d190997d4794e93f673a136bd, type: 3}
+  m_PrefabInstance: {fileID: 5355677719109737864}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2380066396888819046 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7733948596330199278, guid: 8062078d190997d4794e93f673a136bd, type: 3}
   m_PrefabInstance: {fileID: 5355677719109737864}
   m_PrefabAsset: {fileID: 0}

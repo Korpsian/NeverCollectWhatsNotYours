@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 574722719903162336}
   - component: {fileID: 3846139024708471618}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MonsterAtmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7150289309007882525}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CreepyBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7150289310431145390}
   - component: {fileID: 7150289310431145391}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 7
-  m_Range: 40
+  m_Range: 100
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -268,7 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8327898859051519716}
   - component: {fileID: 4732655849469512028}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: JumpscareSFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8146330797303084243}
   - component: {fileID: 6904834616538775550}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TriggerAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1250,9 +1250,25 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 94862c4ebdac1c341bdbcd14c2a7b46a, type: 2}
+    - target: {fileID: 1868747213677150781, guid: 9fea808f83143804d9faa18ff5942f9a, type: 3}
+      propertyPath: m_Size.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868747213677150781, guid: 9fea808f83143804d9faa18ff5942f9a, type: 3}
+      propertyPath: m_Size.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868747213677150781, guid: 9fea808f83143804d9faa18ff5942f9a, type: 3}
+      propertyPath: m_Size.z
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1868747213677150782, guid: 9fea808f83143804d9faa18ff5942f9a, type: 3}
       propertyPath: m_Name
       value: Creepy Eyes
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868747213677150782, guid: 9fea808f83143804d9faa18ff5942f9a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fea808f83143804d9faa18ff5942f9a, type: 3}
@@ -1266,6 +1282,46 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1868747213677150782, guid: 9fea808f83143804d9faa18ff5942f9a, type: 3}
   m_PrefabInstance: {fileID: 7150289310569116961}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &298784532380176151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8851246238805587743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07da0ce0bb67a544f9428bbdbb0ba138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerd: 0
+  triggerEvents:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4732655849469512028}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6904834616538775550}
+        m_TargetAssemblyTypeName: MoreMountains.Feedbacks.MMF_Player, MoreMountains.Feedbacks
+        m_MethodName: PlayFeedbacks
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2492101929744465534
 MonoBehaviour:
   m_ObjectHideFlags: 0
