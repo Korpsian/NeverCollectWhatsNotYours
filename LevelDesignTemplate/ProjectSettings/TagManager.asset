@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - SetCheckpoint
+  - Quit
   layers:
   - Default
   - TransparentFX

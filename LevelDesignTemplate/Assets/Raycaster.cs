@@ -10,14 +10,24 @@ public class Raycaster : MonoBehaviour
     private void Update()
     {
         RaycastHit hit;
-        // Does the ray intersect any objects excluding the player layer
-        Debug.DrawRay(transform.position + Vector3.up, transform.TransformDirection(Vector3.forward), Color.white);
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+        RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.TransformDirection(Vector3.forward));
+
+        foreach(RaycastHit h in hits)
         {
-            if(hit.transform.TryGetComponent<RaycastReciver>(out RaycastReciver r))
+            if (h.transform.TryGetComponent<RaycastReciver>(out RaycastReciver r))
             {
                 r.Trigger();
             }
         }
+
+        // Does the ray intersect any objects excluding the player layer
+        Debug.DrawRay(transform.position + Vector3.up, transform.TransformDirection(Vector3.forward), Color.white);
+        //if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+        //{
+        //    if(hit.transform.TryGetComponent<RaycastReciver>(out RaycastReciver r))
+        //    {
+        //        r.Trigger();
+        //    }
+        //}
     }
 }
