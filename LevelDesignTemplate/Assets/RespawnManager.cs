@@ -31,11 +31,11 @@ public class RespawnManager : MonoBehaviour
     {
         Debug.Log("RESPAWN");
         controller.enabled = false;
-        transform.position = spawnPosition;
         StartCoroutine(SetImageAlpha(blackPanel, 1f));
         PlayRespawnSound();
 
-        yield return new WaitForSecondsRealtime(1.5f);
+        yield return new WaitForSecondsRealtime(2f);
+        transform.position = spawnPosition;
         StartCoroutine(SetImageAlpha(blackPanel, 0f));
         controller.enabled = true;
     }
@@ -53,6 +53,7 @@ public class RespawnManager : MonoBehaviour
             lerp += 0.1f;
             yield return new WaitForSeconds(0.01f);
         }
+        panel.color = Color.Lerp(startColor, endColor, 1);
 
         yield break;
     }
